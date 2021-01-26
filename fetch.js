@@ -34,6 +34,7 @@ function fetchUsers() {
     const options = {
         method: 'GET',
         url: `https://graph.microsoft.com/v1.0/users`,
+        json: true,
         headers: {
             Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8'
@@ -45,7 +46,7 @@ function fetchUsers() {
             throw new Error(error || body.error.message);
         }
 
-        console.log(body);
+        console.log(body.value.filter(user => user.jobTitle && user.givenName))
     });
 
 }
