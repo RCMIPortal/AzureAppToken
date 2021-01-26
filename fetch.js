@@ -33,7 +33,7 @@ function generateToken() {
 function fetchUsers() {
     const options = {
         method: 'GET',
-        url: `https://graph.microsoft.com/v1.0/users/${tenant}`,
+        url: `https://graph.microsoft.com/v1.0/users`,
         headers: {
             Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8'
